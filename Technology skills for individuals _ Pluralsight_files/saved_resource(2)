@@ -1,0 +1,10 @@
+
+(function() {
+  if (document.createElement
+  && document.body) {
+    var nm_script = document.createElement('SCRIPT');
+    nm_script.src = document.location.protocol + '//nan.netmng.com/?aid=5520&siclientid=103352&cch';
+    document.body.appendChild(nm_script);
+  }
+})();
+ 

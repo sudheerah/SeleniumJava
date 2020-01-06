@@ -1,0 +1,56 @@
+Handlebars.registerHelper('truncateString',function(passedString,start,end){var theString=passedString;if(passedString.length>end){theString=passedString.substring(start,end)+'...';}
+return new Handlebars.SafeString(theString)});Handlebars.registerHelper('compare',function(lvalue,operator,rvalue,options){var operators,result;if(arguments.length<3&&operator!='truthy'){throw new Error("Handlerbars Helper 'compare' needs 2 parameters for all but 'truthy' test");}
+if(options===undefined&&operator!='truthy'){options=rvalue;rvalue=operator;operator="===";}else if(options===undefined&&operator=='truthy'){options=rvalue;}
+operators={'==':function(l,r){return l==r;},'===':function(l,r){return l===r;},'!=':function(l,r){return l!=r;},'!==':function(l,r){return l!==r;},'<':function(l,r){return l<r;},'>':function(l,r){return l>r;},'<=':function(l,r){return l<=r;},'>=':function(l,r){return l>=r;},'&&':function(l,r){return l&&r;},'||':function(l,r){return l||r;},'truthy':function(l){if(l){return true;}else{return false}},'typeof':function(l,r){return typeof l==r;}};if(!operators[operator]){throw new Error("Handlerbars Helper 'compare' doesn't know the operator "+operator);}
+result=operators[operator](lvalue,rvalue);if(result){return options.fn(this);}else{return options.inverse(this);}});Handlebars.registerHelper('limit',function(arr,limit){return arr.slice(0,limit);});Handlebars.registerHelper('dateFormat',function(context,block){if(window.moment){var f=block.hash.format||"MMM Do, YYYY";if(context){return moment(new Date(context.replace("Z","").replace("UTC",""))).format(f);}else{return context;}}else{return context;};});Handlebars.registerHelper('groupData',function(attr,count,opts){var context,result,arr,i,zones,inject;context=this;arr=context[attr];zones=Math.ceil(arr.length/count);result="";for(i=0;i<zones;i++){inject={};inject[attr]=arr.slice(i*count,(i+1)*count);result+=opts.fn(inject);}
+return result;});Handlebars.registerHelper('formatCourseURL',function(courseName,type){var slug=courseName;var courseUrl=jQuery('#course-base-url').attr('href');if(type=='interactive-course'){courseUrl=jQuery('#interactive-course-base-url').attr('href');}else if(type=='project'){courseUrl=jQuery('#project-base-url').attr('href');slug=courseName.replace("/projects/","");}
+var htmlIndex=courseUrl.indexOf('.html');if(htmlIndex>=0){courseUrl=courseUrl.substring(0,htmlIndex);}
+courseUrl+='/'+slug;if(htmlIndex>=0){courseUrl+='.html';}
+return courseUrl;});Handlebars.registerHelper('removePageTitleEnding',function(pageName){return pageName.replace(" | Pluralsight","").replace("Pluralsight | ","");});Handlebars.registerHelper('formatProdId',function(prodId){var courseUrl=jQuery('#course-base-url').attr('href'),htmlIndex=courseUrl.indexOf('.html');if(htmlIndex>=0){courseUrl=courseUrl.substring(0,htmlIndex);}
+var pipeIndex=prodId.indexOf("|");if(pipeIndex>=0){prodId=prodId.substring(0,pipeIndex);}
+courseUrl+='/'+prodId;if(htmlIndex>=0){courseUrl+='.html';}
+return courseUrl;});Handlebars.registerHelper('formatDuration',function(duration){if(duration){var hoursString=duration.match(/\d+H/),minutesString=duration.match(/\d+M/),secondsString=duration.match(/[\d\.]+S/),formattedDuration='',hours=0,minutes=0,seconds=0;if(hoursString){hours=parseInt(hoursString[0].substring(0,hoursString[0].length-1));}
+if(minutesString){minutes=parseInt(minutesString[0].substring(0,minutesString[0].length-1));}
+if(secondsString){seconds=parseInt(secondsString[0].split(".")[0].substring(0,secondsString[0].length-1));}
+if(seconds>=60){minutes=minutes+Math.floor(seconds/60);seconds=seconds%60;}
+if(minutes>=60){hours=hours+Math.floor(minutes/60);minutes=minutes%60;}
+if(hours){formattedDuration+=hours+"h ";}
+if(minutes){formattedDuration+=minutes+"m";}
+return formattedDuration;}else{return duration;}});function toTitleCase(str)
+{return str.replace(/\w\S*/g,function(txt){return txt.charAt(0).toUpperCase()+txt.substr(1).toLowerCase();});}
+Handlebars.registerHelper('formatCourseTag',function(tag){if(tag==="software-development")
+return "Software Development"
+if(tag==="it-ops")
+return "IT Ops"
+if(tag==="creative-professional")
+return "Creative Professional"
+if(tag==="business-professional")
+return "Business Professional"
+if(tag==="data-professional")
+return "Data Professional"
+if(tag==="architecture-construction")
+return "Architecture & Construction"
+if(tag==="manufacturing-design")
+return "Manufacturing & Design"
+if(tag==="security-professional")
+return "Information & Cyber Security"
+if(tag==="cloud")
+return "Cloud Computing"
+if(tag==="machine-learning")
+return "Machine Learning & AI"
+if(tag==="film-games")
+return "Film & Games"
+if(tag==="graphic-arts")
+return "Graphic Arts & Illustration"
+return formattedTag=toTitleCase(tag.split("-").join(" "));});Handlebars.registerHelper('lastParam',function(url){return url.split('=').pop();});Handlebars.registerHelper('formatAuthorURL',function(authorId){var authorUrl=jQuery('#author-base-url').attr('href'),htmlIndex=authorUrl.indexOf('.html');if(htmlIndex>=0){authorUrl=authorUrl.substring(0,htmlIndex);}
+authorUrl+='/'+authorId;if(htmlIndex>=0){authorUrl+='.html';}
+return authorUrl;});Handlebars.registerHelper('formatAuthorThumbnail',function(url){if(url===''||url===null||typeof url==='undefined'){return '';}
+var urlParts=url.split(','),thumbnailUrl=urlParts[0];return thumbnailUrl;});Handlebars.registerHelper('contains',function(containingString,smallString,options){if(containingString.indexOf(smallString)>-1){return options.fn(this);}else{return options.inverse(this);}});Handlebars.registerHelper('notContains',function(containingString,smallString,options){if(containingString.indexOf(smallString)===-1){return options.fn(this);}else{return options.inverse(this);}});Handlebars.registerHelper('mapResultSetNameToTabName',function(name){switch(name){case 'courses':return 'course';case 'blogs':return 'blog';case 'resources':return 'resource';case 'authors':return 'aem-author';default:return name;}});Handlebars.registerHelper('getRatingStarClass',function(rating,starPosition){var roundedRating=(Math.round(rating*2)/2).toFixed(1),starClass='',ratingDifference=starPosition-roundedRating;if(ratingDifference===.5){starClass='-half-o';}else if(ratingDifference>.5){starClass=' gray';}
+return starClass});Handlebars.registerHelper('objectContainsKey',function(obj,key,options){var result;if(arguments.length<2){throw new Error("Handlerbars Helper 'objectContainsKey' needs 2 parameters");}
+result=obj.hasOwnProperty(key);if(result){return options.fn(this);}else{return options.inverse(this);}});Handlebars.registerHelper('getCourseKeyFromURL',function(url){var indexOfQMark=url.indexOf("?");if(indexOfQMark<0){return "";}
+var qParams=jQuery.query.parseNew(url.substring(indexOfQMark));return((qParams&&qParams.keys&&qParams.keys.key)?qParams.keys.key:"");});Handlebars.registerHelper('isAEMDateTime',function(str,options){var result,dateTimeRegex=/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}-\d{2}:\d{2}/;result=dateTimeRegex.test(str);if(result){return options.fn(this);}else{return options.inverse(this);}});Handlebars.registerHelper("stripHash",function(string){return string.split('#')[0];});Handlebars.registerHelper("getTagDisplayValue",function(string){var hashStripped=Handlebars.helpers.stripHash(string);var colonSplitVals=hashStripped.split(':');return(colonSplitVals&&colonSplitVals.length>1)?colonSplitVals[1]:"";});Handlebars.registerHelper("getTagPrefix",function(stringArray){if(!stringArray||!stringArray.length){return "";}
+return stringArray[0].split(':')[0]+":";});Handlebars.registerHelper('isPropertyType',function(key,typeString,options){if(key.indexOf(typeString)>-1){return options.fn(this);}else{return options.inverse(this);}});Handlebars.registerHelper('getPropertyType',function(string){if(!string){return undefined;}
+var indexOfPound=string.indexOf("#");return(indexOfPound>-1)?string.substring(indexOfPound):undefined;});Handlebars.registerHelper('isSelected',function(string,options){if(string&&string.indexOf('#selected')>-1){return options.fn(this);}else{return options.inverse(this);}});Handlebars.registerHelper("debug",function(optionalValue){console.log("Current Context");console.log("====================");console.log(this);if(optionalValue){console.log("Value");console.log("====================");console.log(optionalValue);}});var $searchCategoriesTemplatesPartial=jQuery('#search-categories-templates-partial');if($searchCategoriesTemplatesPartial.length){Handlebars.registerPartial('search-categories-templates',$searchCategoriesTemplatesPartial.html());}
+var $headerSearchCategoriesTemplatesPartial=jQuery('#header-search-categories-templates-partial');if($headerSearchCategoriesTemplatesPartial.length){Handlebars.registerPartial('header-search-categories-templates',$headerSearchCategoriesTemplatesPartial.html());}
+var $regEventPartial=jQuery('#regular-event-template-partial');if($regEventPartial.length){Handlebars.registerPartial('regular-event-partial',$regEventPartial.html());}
+var $featuredEventPartial=jQuery('#featured-event-template-partial');if($featuredEventPartial.length){Handlebars.registerPartial('featured-event-partial',$featuredEventPartial.html());}
