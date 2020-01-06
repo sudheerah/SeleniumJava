@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47aa7ae2-fc7b-4431-8068-552bdc7e13c1" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="47aa7ae2-fc7b-4431-8068-552bdc7e13c1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/website/pages/course/CourseActController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/website/pages/course/CourseVerifyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/website/pages/home/HomeActController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/website/pages/home/HomeVerifyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/website/pages/CoursePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/website/pages/course/CoursePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/website/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/website/pages/home/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/website/pages/SearchActController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/website/pages/search/SearchActController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/website/pages/SearchPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/website/pages/search/SearchPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/website/pages/SearchVerifyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/website/pages/search/SearchVerifyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/website/SearchTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/website/SearchTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +29,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -23,7 +40,14 @@
     </option>
   </component>
   <component name="ProjectId" id="1VxGP9upSVaAMCpkDD4dR2ReWdi" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
   </component>
@@ -31,18 +55,6 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="website" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="SearchTest.basicFilterByTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -67,6 +79,18 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -78,12 +102,26 @@
       <option name="presentableId" value="Default" />
       <updated>1578187305457</updated>
       <workItem from="1578187308670" duration="18904000" />
-      <workItem from="1578304674576" duration="272000" />
+      <workItem from="1578304674576" duration="1671000" />
+      <workItem from="1578306641565" duration="858000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

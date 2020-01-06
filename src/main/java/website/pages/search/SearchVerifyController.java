@@ -1,4 +1,4 @@
-package website.pages;
+package website.pages.search;
 
 public class SearchVerifyController {
 

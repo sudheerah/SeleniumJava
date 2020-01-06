@@ -1,14 +1,4 @@
-package website.pages;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import website.pages.search.Role;
-import website.pages.search.SkillLevel;
-import website.pages.search.Tab;
-
-import static website.pages.DriverFactory.getChromeDriver;
-import static website.pages.DriverFactory.getWebDriverWait;
+package website.pages.search;
 
 //Builder Pattern which uses method change and fluent interface also uses method chain
 
